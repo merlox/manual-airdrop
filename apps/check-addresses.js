@@ -14,12 +14,18 @@ function createArrays() {
 
 function start() {
 	let addressFound = false
+	let fileContent = ''
+	if(fs.existsSync('results/invalid-addresses-found.txt')) {
+		fileContent = fs.readFileSync('results/invalid-addresses-found.txt', 'utf-8')
+	}
 	console.log('Not valid addresses:')
 	for(let i = 0; i < (accounts.length - 1); i++) {
 		if(!web3.utils.isAddress(accounts[i])) {
-			console.log(i, accounts[i])
+			fileContent += `${i} ${accounts[i]}`
+			console.log(`${i} ${accounts[i]}`)
 			addressFound = true
 		}
 	}
+	fs.writeFileSync('results/invalid-addresses-found.txt', fileContent)
 	if(!addressFound) console.log('Congratulations! All addresses look good.')
 }

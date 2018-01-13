@@ -27,6 +27,10 @@ function init() {
 		let cutAccounts = accounts.slice(lastPosition, finalPosition)
 		cutAccounts = '["' + cutAccounts.join('","') + '"]'
 		let cutAmounts = amounts.slice(lastPosition, finalPosition)
+		// Add the digits to all the numbers and remove the decimals
+		for(let a = 0; a < cutAmounts.length; a++) {
+			cutAmounts[i] = cutAmounts[i] * 6 + "000000000000"
+		}
 		cutAmounts = '["' + cutAmounts.join('","') + '"]'
 
 		fileContent += `// ${i+1}\r\n${cutAccounts}, ${cutAmounts}\r\n\r\n`
