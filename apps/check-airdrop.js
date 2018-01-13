@@ -49,7 +49,7 @@ async function init() {
 
 	fs.writeFileSync('results/not-airdropped.txt', fileContent)
 	fs.writeFileSync('results/not-airdropped-accounts.txt', fileAccounts)
-	fs.writeFileSync('results/not-airdropped-amount-to-send.txt', fileAmounts)
+	fs.writeFileSync('results/not-airdropped-amounts.txt', fileAmounts)
 	fs.writeFileSync('results/not-airdropped-amounts-with-decimals.txt', fileAmountsWithDecimals)
 }
 
