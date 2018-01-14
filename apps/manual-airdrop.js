@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 const { join } = require('path')
-const batchSize = 150
+const batchSize = 100
 let accounts
 let amounts
 
@@ -29,7 +29,7 @@ function init() {
 		let cutAmounts = amounts.slice(lastPosition, finalPosition)
 		// Add the digits to all the numbers and remove the decimals
 		for(let a = 0; a < cutAmounts.length; a++) {
-			cutAmounts[i] = cutAmounts[i] * 6 + "000000000000"
+			cutAmounts[a] = cutAmounts[a] * 1e6 + "000000000000"
 		}
 		cutAmounts = '["' + cutAmounts.join('","') + '"]'
 

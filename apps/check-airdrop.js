@@ -5,7 +5,7 @@ const BigNumber = require('bignumber.js')
 const { join } = require('path')
 const erc20Abi = require('./../erc20.js').abi
 const erc20Address = require('./../erc20.js').address
-const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/6GO3REaLghR6wPhNJQcc'));
+const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/LS6I9T44SWF1sQ5zi8Up'));
 const ERC20 = new web3.eth.Contract(erc20Abi, erc20Address);
 let accounts
 let amounts
