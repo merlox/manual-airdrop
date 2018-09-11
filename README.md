@@ -1,5 +1,12 @@
 # manual-airdrop
-REMEMBER to change the mainnet or ropsten used in erc20.js for your needs. Right now is using the mainnet to check the airdropped addresses to see if they have the required amounts 
+REMEMBER to change the mainnet or ropsten used in erc20.js for your needs. Right now is using the mainnet to check the airdropped addresses to see if they have the required amounts
+
+USAGE:
+1. First deploy the Airdrop.sol
+2. Send tokens to Airdrop.sol from the token to the airdrop contract enough to pay for the transfers. You can extract the tokens and ether later
+3. Set up your addresses in data/addresses and amounts in data/amounts
+4. Execute "node apps/manual-airdrop" to generate your accounts
+5. Start the airdrop from remix
 
 This application allows you to prepare the addresses and amounts in batches. Set the accounts in the accounts.js file and the amounts.js and execute the manual-airdrop.js for getting results.txt with all the batches so you can airdrop all of those manually.
 

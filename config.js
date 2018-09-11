@@ -5,5 +5,6 @@
 // like 1234567 up to 123456
 module.exports = {
     decimals: 1e18,
-    network: 'https://mainnet.infura.io/LS6I9T44SWF1sQ5zi8Up'
+    network: 'https://mainnet.infura.io/LS6I9T44SWF1sQ5zi8Up',
+    batchSize: 200
 }

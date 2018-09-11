@@ -248,6 +248,10 @@ contract Token is PausableToken {
 
    uint256 public totalSupply = 100e24;
 
+    constructor() public {
+        balances[owner] = totalSupply;
+    }
+
    function emergencyExtract() external onlyOwner {
        owner.transfer(this.balance);
    }

@@ -8,7 +8,7 @@
 const fs = require('fs')
 const { join } = require('path')
 const configuration = require('./../config.js')
-const batchSize = 100
+const batchSize = configuration.batchSize
 let accounts
 let amounts
 
