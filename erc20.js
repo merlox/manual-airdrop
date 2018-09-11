@@ -1,3 +1,6 @@
+// A file used to check the airdrops by connecting to the blockchain
+
+const address = '0x80bc5512561c7f85a3a9508c7df7901b370fa1df'
 const abi = [
 	{
 		"constant": false,
@@ -173,7 +176,6 @@ const abi = [
 		"type": "event"
 	}
 ]
-const address = '0x80bc5512561c7f85a3a9508c7df7901b370fa1df'
 
 module.exports = {
 	abi,

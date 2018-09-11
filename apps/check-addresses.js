@@ -1,3 +1,11 @@
+/*
+Generates:
+- results/invalid-addresses-found.txt
+
+Does:
+- Generates a file with the invalidly formatted addresses in data/addresses so that you can delete them
+*/
+
 const Web3 = require('web3')
 const { join } = require('path')
 const fs = require('fs')

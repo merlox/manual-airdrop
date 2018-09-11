@@ -1,4 +1,14 @@
-// Check that the airdropped accounts have more or equal the amount sent
+/*
+Generates:
+- results/not-airdropped.txt
+- results/not-airdropped-accounts.txt
+- results/not-airdropped-amounts.txt
+- results/not-airdropped-amounts-with-decimals.txt
+
+Does:
+- Reads the data/addresses and data/amounts to check if the data/account has more or equal the amount in data/amounts
+- Checks that the airdropped accounts have more or equal the amount sent
+*/
 const Web3 = require('web3')
 const fs = require('fs')
 const BigNumber = require('bignumber.js')

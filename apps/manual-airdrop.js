@@ -1,3 +1,8 @@
+/*
+1. Put the accounts in data/accounts
+2. Put the amounts in data/amounts
+*/
+
 // Put the accounts and the amounts in the respective files. Make sure they are properly formatted by checking the length of each line when you put all the addresses in a file with an address per line
 
 const fs = require('fs')
