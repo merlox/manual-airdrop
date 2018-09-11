@@ -7,6 +7,7 @@
 
 const fs = require('fs')
 const { join } = require('path')
+const configuration = require('./../config.js')
 const batchSize = 100
 let accounts
 let amounts
@@ -34,7 +35,11 @@ function init() {
 		let cutAmounts = amounts.slice(lastPosition, finalPosition)
 		// Add the digits to all the numbers and remove the decimals
 		for(let a = 0; a < cutAmounts.length; a++) {
-			cutAmounts[a] = cutAmounts[a] * 1e6 + "000000000000"
+			// 1e6 is the limit before js starts adding decimals
+			// So we gotta add the "000" after that as String
+			// to make sure they don't have dots as decimals, to avoid this:
+			// 12389.92300000000 and get this 12389923000000000
+			cutAmounts[a] = cutAmounts[a] * 1e6  + String(configuration.decimals).substring(7, Infinity)
 		}
 		cutAmounts = '["' + cutAmounts.join('","') + '"]'
 

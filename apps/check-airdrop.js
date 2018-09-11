@@ -15,7 +15,8 @@ const BigNumber = require('bignumber.js')
 const { join } = require('path')
 const erc20Abi = require('./../erc20.js').abi
 const erc20Address = require('./../erc20.js').address
-const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/LS6I9T44SWF1sQ5zi8Up'));
+const configuration = require('./../config.js')
+const web3 = new Web3(new Web3.providers.HttpProvider(configuration.network));
 const ERC20 = new web3.eth.Contract(erc20Abi, erc20Address);
 let accounts
 let amounts
@@ -41,7 +42,7 @@ async function init() {
 	try {
 		for(let i = 0; i < accounts.length; i++) {
 			let realAmount = BN(await ERC20.methods.balanceOf(accounts[i]).call())
-			if(realAmount.gt(BN(0))) realAmount = realAmount.div(BN(1e18))
+			if(realAmount.gt(BN(0))) realAmount = realAmount.div(BN(configuration.decimals))
 			let amount = BN(amounts[i])
 
 			console.log(`${i} Processed: ${accounts[i]} airdrop value: ${amount} real value: ${realAmount}`)
@@ -50,7 +51,7 @@ async function init() {
 				fileContent += `${i} ${accounts[i]} : ${amount} : ${realAmount} send: ${amount.sub(realAmount)}\r\n`
 				fileAccounts += `${accounts[i]}\r\n`
 				fileAmounts += `${amount.sub(realAmount)}\r\n`
-				fileAmountsWithDecimals += `${amount.sub(realAmount).mul(BN(1e18))}\r\n`
+				fileAmountsWithDecimals += `${amount.sub(realAmount).mul(BN(configuration.decimals))}\r\n`
 			}
 		}
 	} catch(e) {

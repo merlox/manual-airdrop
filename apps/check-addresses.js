@@ -8,8 +8,9 @@ Does:
 
 const Web3 = require('web3')
 const { join } = require('path')
+const configuration = require('./../config.js')
 const fs = require('fs')
-const web3 = new Web3(new Web3.providers.HttpProvider('https://mainnet.infura.io/6GO3REaLghR6wPhNJQcc'));
+const web3 = new Web3(new Web3.providers.HttpProvider(configuration.network));
 let accounts
 
 createArrays()
